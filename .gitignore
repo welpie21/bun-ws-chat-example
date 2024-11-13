@@ -1,0 +1,7 @@
+# node / deno specific directories
+.deno
+node_modules
+
+# ignore folders
+.dist
+.vite
