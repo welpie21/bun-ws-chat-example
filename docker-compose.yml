@@ -9,9 +9,13 @@ services:
     entrypoint:
       - /surreal
       - start
+      - --bind 0.0.0.0:8000
       - -u root
       - -p root
       - --allow-all
+      - --no-identification-headers
+      - --no-banner
+      - --log info
   webserver:
     image: nginx:latest
     ports:

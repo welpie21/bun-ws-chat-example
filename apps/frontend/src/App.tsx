@@ -1,27 +1,18 @@
-import './App.css';
 import { createSignal } from 'solid-js';
-// @ts-expect-error Unable to infer type at the moment
 import solidLogo from './assets/solid.svg';
-import { createResource } from "solid-js";
-
-async function getHelloWorld() {
-	await new Promise((r) => setTimeout(r, 3000));
-	return fetch("http://localhost:3000/api/hello").then(x => x.text());
-}
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
 	const [count, setCount] = createSignal(0);
-	const [r] = createResource(getHelloWorld, { initialValue: "loading..." });
 
 	return (
-		<div class="App">
-			<img src="/vite-deno.svg" alt="Vite with Deno" />
-			{r()}
+		<>
 			<div>
 				<a href="https://vite.dev" target="_blank">
-					<img src="/vite.svg" class="logo" alt="Vite logo" />
+					<img src={viteLogo} class="logo" alt="Vite logo" />
 				</a>
-				<a href="https://www.solidjs.com" target="_blank">
+				<a href="https://solidjs.com" target="_blank">
 					<img src={solidLogo} class="logo solid" alt="Solid logo" />
 				</a>
 			</div>
@@ -31,13 +22,13 @@ function App() {
 					count is {count()}
 				</button>
 				<p>
-					Edit <code>src/App.jsx</code> and save to test HMR
+					Edit <code>src/App.tsx</code> and save to test HMR
 				</p>
 			</div>
 			<p class="read-the-docs">
 				Click on the Vite and Solid logos to learn more
 			</p>
-		</div>
+		</>
 	);
 }
 

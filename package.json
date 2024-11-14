@@ -1,0 +1,22 @@
+{
+	"name": "deno-ws-chat-example",
+	"module": "index.ts",
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"workspaces": [
+		"packages/*",
+		"apps/*"
+	],
+	"scripts": {
+		"serve": "docker compose up",
+		"frontend:dev": "bun --filter './apps/frontend' dev",
+		"frontend:build": "bun --filter './apps/frontend' build",
+		"backend:dev": "bun --filter './apps/backend' dev",
+		"backend:serve": "bun --filter './apps/backend' serve"
+	}
+}
