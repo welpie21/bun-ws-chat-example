@@ -1,5 +1,4 @@
 services:
-  
   surrealdb:
     image: surrealdb/surrealdb:latest
     environment:
@@ -7,12 +6,17 @@ services:
       - DB_PASSWORD=root
     ports:
       - "8000:8000"
-    volumes:
-      - .docker/db:/var/lib/surrealdb
     entrypoint:
-      - /surreal 
-      - start 
-      - --user
-      - $DB_USER
-      - --pass
-      - $DB_PASSWORD
+      - /surreal
+      - start
+      - -u root
+      - -p root
+      - --allow-all
+  webserver:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./.config/nginx/conf.d:/etc/nginx/conf.d
+      - ./.config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./apps/frontend/dist:/usr/share/nginx/html
