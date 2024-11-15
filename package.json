@@ -2,7 +2,14 @@
 	"name": "deno-ws-chat-example",
 	"module": "index.ts",
 	"type": "module",
+	"dependencies": {
+		"@packages/utils": "workspace:*",
+		"@solidjs/router": "^0.15.1",
+		"@surrealdb/surrealdb": "npm:@jsr/surrealdb__surrealdb",
+		"elysia": "^1.1.25"
+	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"@types/bun": "latest"
 	},
 	"peerDependencies": {

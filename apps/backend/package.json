@@ -1,5 +1,5 @@
 {
-	"name": "apps-backend",
+	"name": "@apps/backend",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module"
