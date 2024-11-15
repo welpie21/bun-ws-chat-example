@@ -4,9 +4,7 @@
 	"type": "module",
 	"dependencies": {
 		"@packages/utils": "workspace:*",
-		"@solidjs/router": "^0.15.1",
-		"@surrealdb/surrealdb": "npm:@jsr/surrealdb__surrealdb",
-		"elysia": "^1.1.25"
+		"@solidjs/router": "^0.15.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -23,7 +21,11 @@
 		"serve": "docker compose up",
 		"frontend:dev": "bun --filter './apps/frontend' dev",
 		"frontend:build": "bun --filter './apps/frontend' build",
+
 		"backend:dev": "bun --filter './apps/backend' dev",
-		"backend:serve": "bun --filter './apps/backend' serve"
+		"backend:build": "bun --filter './apps/backend' build",
+		"backend:serve": "bun --filter './apps/backend' serve",
+		
+		"build-image": "docker build --pull -t ws-chat-backend ."
 	}
 }

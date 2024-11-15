@@ -2,5 +2,15 @@
 	"name": "@apps/backend",
 	"private": true,
 	"version": "0.0.0",
-	"type": "module"
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch src/index.ts",
+		"build": "bun build ./src/index.ts --compile --target=bun-linux-x64 --outfile dist/main",
+		"start": "NODE_ENV=production bun dist/index.js",
+		"test": "bun test"
+	},
+	"dependencies": {
+		"@surrealdb/surrealdb": "npm:@jsr/surrealdb__surrealdb",
+		"elysia": "^1.1.25"
+	}
 }
