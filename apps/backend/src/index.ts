@@ -1,6 +1,8 @@
-import { Elysia } from 'elysia';
+import { 
+	type ServerApp, 
+	initializeServer 
+} from "./server";
 
-const app = new Elysia()
-	.get('/', () => 'Hello Elysia')
-	.get('/hello', 'Do you miss me?')
-	.listen(8001);
+initializeServer();
+
+export type { ServerApp };
