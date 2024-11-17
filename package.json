@@ -3,12 +3,17 @@
 	"module": "index.ts",
 	"type": "module",
 	"dependencies": {
+		"@elysiajs/eden": "^1.1.3",
 		"@packages/utils": "workspace:*",
-		"@solidjs/router": "^0.15.1"
+		"@solidjs/router": "^0.15.1",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^2.5.4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/bun": "latest"
+		"@types/bun": "latest",
+		"@apps/backend": "workspace:*"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
@@ -19,13 +24,7 @@
 	],
 	"scripts": {
 		"serve": "docker compose up",
-		"frontend:dev": "bun --filter './apps/frontend' dev",
-		"frontend:build": "bun --filter './apps/frontend' build",
-
-		"backend:dev": "bun --filter './apps/backend' dev",
-		"backend:build": "bun --filter './apps/backend' build",
-		"backend:serve": "bun --filter './apps/backend' serve",
-		
+		"dev": "bun --filter './apps/*' dev",
 		"build-image": "docker build --pull -t ws-chat-backend ."
 	}
 }
