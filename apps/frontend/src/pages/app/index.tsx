@@ -1,10 +1,10 @@
 import type { RouteSectionProps } from "@solidjs/router";
 
-export function AuthLayout(props: RouteSectionProps) {
+export function AppPage(props: RouteSectionProps) {
 
 	return (
 		<div>
-			{props.children}
+			
 		</div>
-	);
+	)
 }
