@@ -1,6 +1,8 @@
 import type { RecordId } from "@surrealdb/surrealdb";
 import type { Optional } from "../types";
 import { createStore } from "solid-js/store";
+import { PasswordNotSpecifiedError, UsernameNotSpecifiedError } from "../utils/error";
+import { api } from "../client";
 
 export interface IAuthStore {
 	token: Optional<string>;
@@ -13,16 +15,34 @@ const [store, setStore] = createStore<IAuthStore>({
 });
 
 export async function login(
-	_username: string,
-	_password: string
+	username: string,
+	password: string
 ) {
 
+	if(username.length === 0) {
+		throw UsernameNotSpecifiedError
+	}
+
+	if(password.length === 0) {
+		throw PasswordNotSpecifiedError
+	}
+
+	api
 }
 
 export async function register(
-	_username: string,
-	_password: string
+	username: string,
+	password: string
 ) {
+
+	if (username.length === 0) {
+		throw UsernameNotSpecifiedError
+	} 
+	
+	if (password.length === 0) {
+		throw PasswordNotSpecifiedError
+	}
+
 
 }
 

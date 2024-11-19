@@ -1,8 +1,13 @@
-import { 
-	type ServerApp, 
-	initializeServer 
-} from "./server";
+import {
+	type ServerApp,
+	initializeHttpServer
+} from "./server.js";
 
-initializeServer();
+import {
+	initializeDB
+} from "./db.js";
+
+initializeHttpServer();
+initializeDB();
 
 export type { ServerApp };
